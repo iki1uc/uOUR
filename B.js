@@ -1,32 +1,38 @@
-// MODULE: <B>  (ersetze <B> durch C, D, E, F, G, H, J, K, L, M, N, P)
+// UNIVERSAL-AXIOM-SCHABLONE für uOUR-Module
 
-const NC = {
-  B: 0,   // Modulwert
-  T: 0,   // Tick
-  R: 0,   // Radius
-  O: 0,   // Orbit
+export const Axiom = {
+  MODE: "12-Achs",
+  TYPE: "uOUR-Module",
+  FORM: "Neutral",
+  QUALITY: "Base",
 
-  tmp() {
-    this.R = Math.sqrt(this.B*this.B + this.T);
-    this.O = Math.sin(this.T/10) * this.R;
+  AXIS: {
+    CORE: "<B>",        // zentraler Modulwert
+    RADIUS: "R",
+    ORBIT: "O",
+    TICK: "T",
+
+    EXT1: "E1",
+    EXT2: "E2",
+    EXT3: "E3"
   },
 
-  axiom() {
-    return {
-      ax: this.B + this.R,
-      ay: this.R - this.O,
-      az: (this.B + this.T) / 2
-    };
+  OPERATOR: {
+    MASTER: "<B>-XI",
+    SLAVE:  "<B>-IX",
+    MID:    "<B>-X4",
+    FLOW:   "<B>-IX → <B>-X4 → <B>-XI"
   },
 
-  run() {
-    this.T++;
-    this.B++;
-    this.tmp();
+  PATH: {
+    MODE: "linear",
+    FULL: "<B> → R → O → T"
+  },
 
-    console.log("<B>:", this.B, this.R, this.O, this.T);
-    console.log("AXIOM:", this.axiom());
+  RESONANZ: {
+    ORDER: "12",
+    LINK:  "uOUR",
+    ROOT:  true,
+    STATE: "REAL"
   }
 };
-
-setInterval(() => NC.run(), 1000);
