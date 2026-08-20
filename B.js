@@ -1,38 +1,28 @@
-// UNIVERSAL-AXIOM-SCHABLONE für uOUR-Module
+import { Axiom698869 } from "./698869.js";
 
-export const Axiom = {
-  MODE: "12-Achs",
-  TYPE: "uOUR-Module",
-  FORM: "Neutral",
-  QUALITY: "Base",
+const NC = {
+  B: 0,
+  T: 0,
+  R: 0,
+  O: 0,
 
-  AXIS: {
-    CORE: "<B>",        // zentraler Modulwert
-    RADIUS: "R",
-    ORBIT: "O",
-    TICK: "T",
-
-    EXT1: "E1",
-    EXT2: "E2",
-    EXT3: "E3"
+  tmp() {
+    this.R = Math.sqrt(this.B*this.B + this.T);
+    this.O = Math.sin(this.T/10) * this.R;
   },
 
-  OPERATOR: {
-    MASTER: "<B>-XI",
-    SLAVE:  "<B>-IX",
-    MID:    "<B>-X4",
-    FLOW:   "<B>-IX → <B>-X4 → <B>-XI"
+  axiom() {
+    return Axiom698869;
   },
 
-  PATH: {
-    MODE: "linear",
-    FULL: "<B> → R → O → T"
-  },
+  run() {
+    this.T++;
+    this.B++;
+    this.tmp();
 
-  RESONANZ: {
-    ORDER: "12",
-    LINK:  "uOUR",
-    ROOT:  true,
-    STATE: "REAL"
+    console.log("B:", this.B, this.R, this.O, this.T);
+    console.log("AXIOM:", this.axiom());
   }
 };
+
+setInterval(() => NC.run(), 1000);
