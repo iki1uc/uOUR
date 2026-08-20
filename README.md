@@ -1,28 +1,24 @@
-# ANKER – Stabilisationsachse · iki1uc
+# uOUR – clock.js / Axiom3D / AirSchach
 
-## Zweck
-ANKER ist die Stabilisationsachse des iki1uc‑Systems.
-Es hält die Achsen IQ, QI, EVO, UPD, UPG, BIOS und CALC im korrekten Verhältnis.
+Dieses Modul verbindet drei Systeme:
 
-## Struktur
-- NAME: ANKER
-- ID: A01
-- Station: S01
-- Dimension: D4
-- Modus: erabel (neutral, operation möglich)
+1. **CLOCK** – Echtzeit
+2. **TIME** – Arbeitszeit
+3. **Axiom3D** – Höhe, Breite, Tiefe (Raumachsen)
 
-## Rolle
-ANKER stabilisiert, ohne selbst aktiv zu berechnen oder zu steuern.
-Es ist die neutrale Achse zwischen AXI, 6d und API.
+Zusammen bilden sie die Grundlage für:
 
-## Bindungen
-- AXI
-- 6d
-- 360
-- 100
-- 213 (REAL)
-- API
+- AirSchach-Slide-Formel  
+- AirSchach-Wette-Formel  
+- Dynamische 3×3-Matrix-Engine  
+- Axiom3D-Vektor-System  
 
-## Status
-STATE = STABIL  
-READY = 100%
+---
+
+## 🔧 CLOCK – Echtzeit
+
+```js
+setInterval(() => {
+  document.getElementById("clock-real").innerText =
+    new Date().toLocaleTimeString();
+}, 1000);
