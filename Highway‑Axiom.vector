@@ -1,0 +1,6 @@
+Highway {
+  MODE: 5-Achs,
+  AXIS: EAR, EON, EXP, AIR, AIV,
+  OPERATOR: XI,
+  PATH: linear
+}

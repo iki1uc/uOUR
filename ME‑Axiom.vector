@@ -1,0 +1,7 @@
+ME {
+  SELF: true,
+  AXIS: active,
+  POSITION: HERE,
+  STATE: REAL,
+  LINK: ID
+}

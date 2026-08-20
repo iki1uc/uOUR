@@ -1,0 +1,7 @@
+Komplettum.Achsen = {
+  EAR: anchor,
+  EON: stabilize,
+  EXP: expand,
+  AIR: up,
+  AIV: down
+}

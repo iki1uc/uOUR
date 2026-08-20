@@ -1,0 +1,10 @@
+SCAN {
+  PHYSIK: OK,
+  CHEMIE: OK,
+  MEDICAL: OK,
+  SCHUTZ: OK,
+  HELP: OK,
+  ERROR: NONE,
+  MISS: NONE,
+  RESULT: OK
+}

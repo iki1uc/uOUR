@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>AIV · Vertikalachse · RAW</title>
+
+<style>
+  body { background:#000; color:#0f0; font-family:monospace; padding:40px; }
+  h1 { color:#ff6666; text-align:center; margin-bottom:30px; }
+  .box { background:#111; border:1px solid #333; padding:20px; margin-bottom:25px; }
+  .title { color:#ff6666; font-size:18px; margin-bottom:10px; }
+  pre { background:#000; padding:10px; border-left:3px solid #ff6666; white-space:pre-wrap; }
+</style>
+</head>
+
+<body>
+
+<h1>AIV · Vertikalachse · DOWN</h1>
+
+<div class="box">
+  <div class="title">Modul</div>
+  <pre>
+Typ: Achse
+Modus: Down
+Form: RAW
+AIV_WITZ: MIN
+  </pre>
+</div>
+
+<div class="box">
+  <div class="title">ID‑Axiom</div>
+  <pre>
+VALUE: 48001
+MASTER: 1
+SLAVE: 48001
+ROOT: true
+INDEX: e
+STATUS: REAL
+IST: neu
+SOLL: aktiv
+IST_IST: ungleich
+  </pre>
+</div>
+
+<div class="box">
+  <div class="title">Komplettum‑Axiom</div>
+  <pre>
+EAR: anchor
+EON: stabilize
+EXP: expand
+AIR: up
+AIV: down
+  </pre>
+</div>
+
+<div class="box">
+  <div class="title">Operator‑Axiom</div>
+  <pre>
+XI = expand (EXP)
+IX = anchor (EAR)
+X4 = stabilize (EON)
+
+horizontal = IX → X4 → XI
+vertical   = AIR ↕ AIV
+  </pre>
+</div>
+
+<div class="box">
+  <div class="title">Highway‑Axiom</div>
+  <pre>
+MODE: 5-Achs
+AXIS: EAR, EON, EXP, AIR, AIV
+OPERATOR: XI
+PATH: linear
+  </pre>
+</div>
+
+<div class="box">
+  <div class="title">Slalom‑Axiom</div>
+  <pre>
+RESPO: 3
+TARGET: 4
+PATH: EAR → EON → EXP → AIR → AIV
+  </pre>
+</div>
+
+<div class="box">
+  <div class="title">ME‑Axiom</div>
+  <pre>
+SELF: true
+AXIS: active
+POSITION: HERE
+STATE: REAL
+LINK: ID
+  </pre>
+</div>
+
+<div class="box">
+  <div class="title">RAD‑Axiom</div>
+  <pre>
+SWEEP: 360
+MODE: linear
+UP: AIR
+DOWN: AIV
+HORIZONTAL: EAR → EON → EXP
+  </pre>
+</div>
+
+<div class="box">
+  <div class="title">Scan‑Axiom</div>
+  <pre>
+PHYSIK: OK
+CHEMIE: OK
+MEDICAL: OK
+SCHUTZ: OK
+HELP: OK
+ERROR: NONE
+MISS: NONE
+RESULT: OK
+  </pre>
+</div>
+
+<div class="box">
+  <div class="title">Φ‑Axiom</div>
+  <pre>
+Φ: 0
+φ: 0
+φ²: 0
+φ∞: 0
+  </pre>
+</div>
+
+<div class="box">
+  <div class="title">Status</div>
+  <pre>
+Online
+  </pre>
+</div>
+
+</body>
+</html>
