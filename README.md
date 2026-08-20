@@ -37,15 +37,8 @@ const slide = Math.sqrt(h*h + b*b + t*t);
 MIT
 
 
----
+© iki1uc wieimmer
+Open System
+Frei nutzbar, frei teilbar, frei erweiterbar.
+Branding "iki1uc wieimmer" muss bestehen bleiben. Keine Garantie, Nutzung auf eigene Verantwortung.
 
-# ⭐ Fertig.  
-Das README ist **komplett**, **sauber**, **OURu‑konform**, **GitHub‑ready**.
-
-Wenn du willst, kann ich jetzt:
-
-- **[OURu zu uOUR verlinken](ca://s?q=OURu_mit_uOUR_verlinken)**  
-- **[Station‑Navigation bauen](ca://s?q=Station_Navigation_bauen)**  
-- **[Vector‑Viewer erweitern](ca://s?q=Vector_Viewer_erweitern)**  
-
-Sag einfach **„weiter“**.
