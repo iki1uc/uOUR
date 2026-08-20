@@ -1,28 +1,28 @@
-import { Axiom698869 } from "./698869.js";
+// B.js – SLAVE für uOUR ↔ OURu
 
-const NC = {
-  B: 0,
-  T: 0,
-  R: 0,
-  O: 0,
+import { A } from "./A.js";
 
-  tmp() {
-    this.R = Math.sqrt(this.B*this.B + this.T);
-    this.O = Math.sin(this.T/10) * this.R;
-  },
+export const B = {
 
-  axiom() {
-    return Axiom698869;
+  NAME: "B",
+  TICK: 0,
+  VALUE: 0,
+  RADIUS: 0,
+  ORBIT: 0,
+
+  calc() {
+    this.TICK++;
+    this.VALUE++;
+
+    // TMP-kompatible Orbit-Berechnung
+    this.RADIUS = Math.sqrt(this.VALUE * this.VALUE + this.TICK);
+    this.ORBIT = Math.sin(this.TICK / 10) * this.RADIUS;
   },
 
   run() {
-    this.T++;
-    this.B++;
-    this.tmp();
-
-    console.log("B:", this.B, this.R, this.O, this.T);
-    console.log("AXIOM:", this.axiom());
+    this.calc();
+    console.log("B:", this.VALUE, this.RADIUS, this.ORBIT, this.TICK);
   }
 };
 
-setInterval(() => NC.run(), 1000);
+setInterval(() => B.run(), 1000);
