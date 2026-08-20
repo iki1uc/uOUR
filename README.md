@@ -22,3 +22,12 @@ setInterval(() => {
   document.getElementById("clock-real").innerText =
     new Date().toLocaleTimeString();
 }, 1000);
+
+---
+
+## ♟️ AirSchach – Slide‑Formel
+
+Die Slide‑Formel berechnet die Vektor‑Länge des 3D‑Axioms:
+
+```js
+const slide = Math.sqrt(h*h + b*b + t*t);
