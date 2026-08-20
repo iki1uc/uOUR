@@ -1,4 +1,4 @@
-// A.js – Master-Modul für uOUR/OURu
+// A.js – MASTER für uOUR ↔ OURu
 
 import { Axiom698869 } from "./698869.js";
 import { HighwayAxiom } from "./Highway-Axiom.js";
@@ -40,7 +40,7 @@ export const A = {
     this.TICK++;
     this.VALUE++;
 
-    // Orbit-Berechnung (TMP-kompatibel)
+    // TMP-kompatible Orbit-Berechnung
     this.RADIUS = Math.sqrt(this.VALUE * this.VALUE + this.TICK);
     this.ORBIT = Math.sin(this.TICK / 10) * this.RADIUS;
   },
