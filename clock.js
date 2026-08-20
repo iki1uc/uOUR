@@ -31,3 +31,15 @@ const Matrix3x3 = [
   [h, b, t],
   [h, b, t]
 ];
+
+function updateMatrix() {
+  const Matrix3x3 = [
+    [h, b, t],
+    [h, b, t],
+    [h, b, t]
+  ];
+
+  console.log(Matrix3x3);
+}
+
+setInterval(updateMatrix, 1000);
