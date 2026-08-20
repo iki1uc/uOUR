@@ -2,140 +2,105 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>AIV · Vertikalachse · RAW</title>
-
+<title>OURu · Station · Vector-Hub</title>
 <style>
-  body { background:#000; color:#0f0; font-family:monospace; padding:40px; }
-  h1 { color:#ff6666; text-align:center; margin-bottom:30px; }
-  .box { background:#111; border:1px solid #333; padding:20px; margin-bottom:25px; }
-  .title { color:#ff6666; font-size:18px; margin-bottom:10px; }
-  pre { background:#000; padding:10px; border-left:3px solid #ff6666; white-space:pre-wrap; }
+  body {
+    background: #000;
+    color: #0f0;
+    font-family: monospace;
+    padding: 20px;
+  }
+  .panel {
+    border: 1px solid #0f0;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  h2 { margin: 0 0 10px 0; }
 </style>
 </head>
 
 <body>
 
-<h1>AIV · Vertikalachse · DOWN</h1>
+<h1>OURu · Station · Vector‑Hub · Axiom‑Orbit</h1>
 
-<div class="box">
-  <div class="title">Modul</div>
-  <pre>
-Typ: Achse
-Modus: Down
-Form: RAW
-AIV_WITZ: MIN
-  </pre>
+<div class="panel">
+  <h2>Axiom‑Orbit</h2>
+  <pre id="orbit"></pre>
 </div>
 
-<div class="box">
-  <div class="title">ID‑Axiom</div>
-  <pre>
-VALUE: 48001
-MASTER: 1
-SLAVE: 48001
-ROOT: true
-INDEX: e
-STATUS: REAL
-IST: neu
-SOLL: aktiv
-IST_IST: ungleich
-  </pre>
+<div class="panel">
+  <h2>Axiom‑Core</h2>
+  <pre id="axiom"></pre>
 </div>
 
-<div class="box">
-  <div class="title">Komplettum‑Axiom</div>
-  <pre>
-EAR: anchor
-EON: stabilize
-EXP: expand
-AIR: up
-AIV: down
-  </pre>
+<div class="panel">
+  <h2>Module‑Output</h2>
+  <pre id="modules"></pre>
 </div>
 
-<div class="box">
-  <div class="title">Operator‑Axiom</div>
-  <pre>
-XI = expand (EXP)
-IX = anchor (EAR)
-X4 = stabilize (EON)
+<script type="module">
 
-horizontal = IX → X4 → XI
-vertical   = AIR ↕ AIV
-  </pre>
-</div>
+  import { A } from "./A.js";
+  import { B } from "./B.js";
+  import { C } from "./C.js";
+  import { D } from "./D.js";
+  import { E } from "./E.js";
+  import { F } from "./F.js";
+  import { G } from "./G.js";
+  import { H } from "./H.js";
+  import { K } from "./K.js";
+  import { L } from "./L.js";
+  import { P } from "./P.js";
+  import { V } from "./V.js";
 
-<div class="box">
-  <div class="title">Highway‑Axiom</div>
-  <pre>
-MODE: 5-Achs
-AXIS: EAR, EON, EXP, AIR, AIV
-OPERATOR: XI
-PATH: linear
-  </pre>
-</div>
+  import { HighwayAxiom } from "./Highway-Axiom.js";
+  import { KomplettumAxiom } from "./Komplettum-Axiom.js";
+  import { MEAxiom } from "./ME-Axiom.js";
+  import { OperatorAxiom } from "./Operator-Axiom.js";
+  import { RADAxiom } from "./RAD-Axiom.js";
+  import { ScanAxiom } from "./Scan-Axiom.js";
+  import { SlalomAxiom } from "./Slalom-Axiom.js";
+  import { PhiAxiom } from "./Phi-Axiom.js";
+  import { IORAxiom } from "./IOR-Axiom.js";
+  import { FlagAxiom } from "./flag.vector.js";
 
-<div class="box">
-  <div class="title">Slalom‑Axiom</div>
-  <pre>
-RESPO: 3
-TARGET: 4
-PATH: EAR → EON → EXP → AIR → AIV
-  </pre>
-</div>
+  import { Axiom698869 } from "./698869.js";
 
-<div class="box">
-  <div class="title">ME‑Axiom</div>
-  <pre>
-SELF: true
-AXIS: active
-POSITION: HERE
-STATE: REAL
-LINK: ID
-  </pre>
-</div>
+  const modules = [A, B, C, D, E, F, G, H, K, L, P, V];
 
-<div class="box">
-  <div class="title">RAD‑Axiom</div>
-  <pre>
-SWEEP: 360
-MODE: linear
-UP: AIR
-DOWN: AIV
-HORIZONTAL: EAR → EON → EXP
-  </pre>
-</div>
+  function tick() {
 
-<div class="box">
-  <div class="title">Scan‑Axiom</div>
-  <pre>
-PHYSIK: OK
-CHEMIE: OK
-MEDICAL: OK
-SCHUTZ: OK
-HELP: OK
-ERROR: NONE
-MISS: NONE
-RESULT: OK
-  </pre>
-</div>
+    modules.forEach(m => m.run());
 
-<div class="box">
-  <div class="title">Φ‑Axiom</div>
-  <pre>
-Φ: 0
-φ: 0
-φ²: 0
-φ∞: 0
-  </pre>
-</div>
+    document.getElementById("orbit").innerText =
+      "A: " + A.VALUE + " | R=" + A.RADIUS + " | O=" + A.ORBIT + "\n" +
+      "B: " + B.VALUE + " | R=" + B.RADIUS + " | O=" + B.ORBIT;
 
-<div class="box">
-  <div class="title">Status</div>
-  <pre>
-Online
-  </pre>
-</div>
+    document.getElementById("axiom").innerText =
+      JSON.stringify({
+        highway: HighwayAxiom,
+        komplettum: KomplettumAxiom,
+        me: MEAxiom,
+        operator: OperatorAxiom,
+        rad: RADAxiom,
+        scan: ScanAxiom,
+        slalom: SlalomAxiom,
+        phi: PhiAxiom,
+        ior: IORAxiom,
+        flag: FlagAxiom,
+        ax698869: Axiom698869
+      }, null, 2);
+
+    let out = "";
+    modules.forEach(m => {
+      out += m.NAME + ": " + m.VALUE + " | R=" + m.RADIUS + " | O=" + m.ORBIT + "\n";
+    });
+    document.getElementById("modules").innerText = out;
+  }
+
+  setInterval(tick, 1000);
+
+</script>
 
 </body>
 </html>
