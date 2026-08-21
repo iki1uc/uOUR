@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>OURu · Station · Vector-Hub</title>
+<title>uOUR · OURu · 698869 · Axiom‑Orbit</title>
 <style>
   body {
     background: #000;
@@ -16,30 +16,62 @@
     margin-bottom: 20px;
   }
   h2 { margin: 0 0 10px 0; }
+  .kick { color: #ffaa00; }
+  .speed { color: #00ccff; }
 </style>
 </head>
-
 <body>
 
-<h1>OURu · Station · Vector‑Hub · Axiom‑Orbit</h1>
+<h1>☕ uOUR · OURu · <span class="kick">698869</span></h1>
 
 <div class="panel">
-  <h2>Axiom‑Orbit</h2>
+  <h2>⚡ Orbit‑Engine</h2>
   <pre id="orbit"></pre>
 </div>
 
 <div class="panel">
-  <h2>Axiom‑Core</h2>
+  <h2>🧩 Axiom‑Core</h2>
   <pre id="axiom"></pre>
 </div>
 
 <div class="panel">
-  <h2>Module‑Output</h2>
+  <h2>📦 Module‑Output (A–Z)</h2>
   <pre id="modules"></pre>
 </div>
 
+<script type="importmap">
+{
+  "imports": {
+    "./A.js": "./A.js",
+    "./B.js": "./B.js",
+    "./C.js": "./C.js",
+    "./D.js": "./D.js",
+    "./E.js": "./E.js",
+    "./F.js": "./F.js",
+    "./G.js": "./G.js",
+    "./H.js": "./H.js",
+    "./K.js": "./K.js",
+    "./L.js": "./L.js",
+    "./P.js": "./P.js",
+    "./V.js": "./V.js",
+    "./Highway-Axiom.js": "./Highway-Axiom.js",
+    "./Komplettum-Axiom.js": "./Komplettum-Axiom.js",
+    "./ME-Axiom.js": "./ME-Axiom.js",
+    "./Operator-Axiom.js": "./Operator-Axiom.js",
+    "./RAD-Axiom.js": "./RAD-Axiom.js",
+    "./Scan-Axiom.js": "./Scan-Axiom.js",
+    "./Slalom-Axiom.js": "./Slalom-Axiom.js",
+    "./Phi-Axiom.js": "./Phi-Axiom.js",
+    "./IOR-Axiom.js": "./IOR-Axiom.js",
+    "./flag.vector.js": "./flag.vector.js",
+    "./698869.js": "./698869.js"
+  }
+}
+</script>
+
 <script type="module">
 
+  // ─── 1. MODULE A–Z ──────────────────────────────────
   import { A } from "./A.js";
   import { B } from "./B.js";
   import { C } from "./C.js";
@@ -53,6 +85,7 @@
   import { P } from "./P.js";
   import { V } from "./V.js";
 
+  // ─── 2. AXIOME ──────────────────────────────────────
   import { HighwayAxiom } from "./Highway-Axiom.js";
   import { KomplettumAxiom } from "./Komplettum-Axiom.js";
   import { MEAxiom } from "./ME-Axiom.js";
@@ -64,17 +97,26 @@
   import { IORAxiom } from "./IOR-Axiom.js";
   import { FlagAxiom } from "./flag.vector.js";
 
+  // ─── 3. DREIECK ─────────────────────────────────────
   import { Axiom698869 } from "./698869.js";
 
+  // ─── 4. ALLE MODULE ────────────────────────────────
   const modules = [A, B, C, D, E, F, G, H, K, L, P, V];
 
+  // ─── 5. TICK ────────────────────────────────────────
   function tick() {
 
-    modules.forEach(m => m.run());
+    modules.forEach(m => {
+      m.TICK++;
+      m.VALUE++;
+      m.RADIUS = Math.sqrt(m.VALUE * m.VALUE + m.TICK);
+      m.ORBIT = Math.sin(m.TICK / 10) * m.RADIUS;
+    });
 
     document.getElementById("orbit").innerText =
       "A: " + A.VALUE + " | R=" + A.RADIUS + " | O=" + A.ORBIT + "\n" +
-      "B: " + B.VALUE + " | R=" + B.RADIUS + " | O=" + B.ORBIT;
+      "B: " + B.VALUE + " | R=" + B.RADIUS + " | O=" + B.ORBIT + "\n" +
+      "C: " + C.VALUE + " | R=" + C.RADIUS + " | O=" + C.ORBIT;
 
     document.getElementById("axiom").innerText =
       JSON.stringify({
